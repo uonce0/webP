@@ -1,1 +1,10 @@
-<img width="451" alt="Week1-result" src="https://github.com/user-attachments/assets/fa74a3d6-fdca-40ff-b35a-a2cf1a9058f7">
+# Web Programming 실습 코드 모음
+
+1. Week1
+   - 1주차 연습
+   - 기본 HTML 문서 작성
+   - 1주차 공부 내용 정리
+2. Week2
+   - 2주차 연습
+   - 표, 링크, 시맨틱 태그 등 추가
+   - 2주차 공부 내용 정리 추가
