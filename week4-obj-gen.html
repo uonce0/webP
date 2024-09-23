@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>객체 생성</title>
+
+    <script>
+        //객체 직접 생성
+        function register() {return this.nStudent++;}
+        function unregister() {return this.nStudent--;}
+        function getStudentCount() {return this.nStudent;}
+
+        let property = new Object();
+        property.korName="웹프로그래밍";
+        property.engName="Web Programming";
+        property.classCode="V024003";
+        property.nStudent=0;
+        property.register = register;
+        property.unregister = unregister;
+        property.getStudentCount = getStudentCount;
+
+        //리터럴 표기법
+        let property2 = {
+            korName: "클라우드컴퓨팅",
+            engName: "CloudComputing",
+            classCode: "V024004",
+            nStudent: 0,
+
+            register: function() {return this.nStudent++;},
+            unregister: function() {return this.nStudent--;},
+            getStudentCount: function() {return this.nStudent;}
+        }
+
+        //프로토타입 작성
+        function univClass(korName,engName,classCode,nStudent) {
+            this.korName=korName;
+            this.engName=engName;
+            this.classCode=classCode;
+            this.nStudent=nStudent;
+
+            this.register = function() {return this.nStudent++;}
+            this.unregister = function() {return this.nStudent--;}
+            this.getStudentCount = function() {return this.nStudent;}
+        }
+    </script>
+</head>
+<body>
+    <ol>
+        <li><h3>직접 객체 만들기</h3></li>
+        <script>
+            document.write("교과목 이름 = ", property.korName + "<br>");
+            document.write("등록 학생 수 = " + property.getStudentCount() + "<br>");
+            property.register();
+            document.write("after register, 등록 학생 수 = " + property.getStudentCount());
+        </script>
+        <li><h3>리터럴 표기법</h3></li>
+        <script>
+            document.write("교과목 이름 = ", property2.korName + "<br>");
+            document.write("등록 학생 수 = " + property2.getStudentCount() + "<br>");
+            property2.register();
+            document.write("after register, 등록 학생 수 = " + property2.getStudentCount());
+        </script>
+        <li><h3>Prototype</h3></li>
+        <script>
+            let property3 = new univClass("프로그래밍언어론","Programming Language","V024005",0);
+
+            document.write("교과목 이름 = ", property3.korName + "<br>");
+            document.write("등록 학생 수 = " + property3.getStudentCount() + "<br>");
+            property3.register();
+            document.write("after register, 등록 학생 수 = " + property3.getStudentCount());
+        </script>
+    </ol>
+</body>
+</html>
