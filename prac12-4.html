@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일기 쓰기</title>
+    <script>
+        function A() {
+            let date = document.getElementById("date");
+            let today = new Date();
+            let year = today.getFullYear();
+            let month = today.getMonth() + 1;
+            let day = today.getDate();
+            
+            date.innerHTML = "오늘 " + year + "." + month + "." + day;
+        }
+
+        function store() {
+            if(!window.localStorage) {
+                alert("로컬 스토리지를 지원하지 않습니다.");
+                return;
+            }
+            let diary = document.getElementById("diary");
+
+            localStorage.setItem(date.innerHTML, diary.value);
+            alert("저장되었습니다.");
+        }
+        function showLIst() {
+            window.location.href = "prac12-4-list.html";
+        }
+    </script>
+</head>
+<body onload="A()">
+    <h3>일기쓰기</h3>
+    <hr>
+    <div id="date"></div>
+    <textarea id="diary" cols="50" rows="10"></textarea><br>
+    <button id="save" onclick="store()">저장</button>
+    <button id="list" onclick="showLIst()">보기</button>
+</body>
+</html>

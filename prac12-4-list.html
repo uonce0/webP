@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일기 보기</title>
+    <style>
+        .content {
+            display: flex;
+            background-color: lightskyblue;
+            border-bottom: 1px solid black;
+        }
+        .num {
+            border: 1px solid darkcyan;
+            margin: 10px;
+        }
+        .date {
+            font-weight: bold;
+            width: 25%;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function getList() {
+            if(!window.localStorage) {
+                alert("로컬 스토리지를 지원하지 않습니다.");
+                return;
+            }
+            let list = document.getElementById("list");
+
+            let content = document.createElement("div");
+            let num = document.createElement("div");
+            let date = document.createElement("div");
+            let diary = document.createElement("div");
+
+            content.className = "content";
+            num.className = "num";
+            date.className = "date";
+            diary.className = "diary";
+
+            let key, value;
+            for(let i=0; i<localStorage.length; i++) {
+                key = localStorage.key(i);
+                value = localStorage.getItem(key);
+                num.innerHTML = i+1;
+                date.innerHTML = key;
+                diary.innerHTML = value;
+                content.appendChild(num);
+                content.appendChild(date);
+                content.appendChild(diary);
+            }
+            list.appendChild(content);
+        }
+    </script>
+</head>
+<body onload="getList()">
+    <h3>일기 보기</h3>
+    <hr>
+    <div id="list"></div>
+</body>
+</html>
