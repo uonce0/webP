@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제 10-5</title>
+    <script>
+        let timer=null;
+        let clock;
+        function A() {
+            clock = document.getElementById('clock');
+            showTime();
+            timer = setInterval('showTime();',1000);
+        }
+        function showTime() {
+                let time = new Date();
+                clock.innerHTML = time.toLocaleTimeString();
+                //setTimeout('showTime();', 1000);
+        }
+    </script>
+</head>
+<body onload="A()">
+    <h2>div 태그에 시계 만들기</h2>
+    <hr>
+    <div id="clock" style="border: 1px solid darkgrey; width: 100px;">
+
+    </div>
+    
+</body>
+</html>
