@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 13-6</title>
+    <script>
+        let addWorker = new Worker("prac13-6-multiple.js");
+
+        function send() {
+            let parameters = {
+                front: document.getElementById("front").value,
+                back: document.getElementById("back").value,
+            };
+
+            addWorker.postMessage(parameters);
+        }
+
+        addWorker.onmessage = function (e) {
+            document.getElementById("result").value = e.data;
+        }
+    </script>
+</head>
+<body>
+    <h3>곱셈하기</h3>
+    <hr>
+    <form>
+        <input type="number" id="front" size="10">
+        x
+        <input type="number" id="back" size="10">
+        =
+        <input type="button" id="multiple" onclick="send()" value="곱하기">
+        <input type="text" id="result" size="10">
+    </form>
+</body>
+</html>

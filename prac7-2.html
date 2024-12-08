@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 7-2</title>
+    <script>
+        let num = [];
+    </script>
+</head>
+<body>
+    <h3>정수 5개 입력받아 역순으로 출력</h3>
+    <hr>
+    <p>입력된 수의 배열</p>
+    <script>
+        for(let i=0;i<5;i++) {
+            num[i] = prompt('정수 입력');
+            document.write(num[i]," ");
+        }
+        document.write("<hr><p>역순으로 재졍렬된 배열</p>");
+        for(let j=4;j>=0;j--){
+            document.write(num[j]," ");
+        }
+    </script>
+</body>
+</html>

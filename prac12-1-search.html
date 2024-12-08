@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 12-1</title>
+    <script>
+        function search() {
+            if(!window.localStorage) {
+                alert("로컬 스토리지를 지원하지 않습니다.");
+                return;
+            }
+
+            let name = document.getElementById("name");
+            let stuNum = document.getElementById("stuNum");
+            
+            let val = sessionStorage.getItem(name.value);
+            if(val == null){
+                alert(name.value + "는 리스트에 없습니다.");
+            } else
+                stuNum.value = val;
+        }
+    </script>
+</head>
+<body>
+    <h3>이름과 학번으로 검색</h3>
+    <hr>
+    검색할 이름 <input type="text" id="name"><br>
+    검색된 학번 <input type="text" id="stuNum">
+    <button onclick="search()">스토리지에서 검색</button><br><br>
+    <a href="prac12-1.html">이름과 학번 저장 페이지로</a>
+</body>
+</html>
