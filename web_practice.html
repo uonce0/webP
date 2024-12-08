@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let span;
+        function A() {
+            span = document.getElementById("span");
+            let timerID = setInterval("doRotate()", 200);
+
+            span.onclick = function (e) {
+                clearInterval(timerID);
+            }
+        }
+
+        function doRotate() {
+            let str = span.innerHTML;
+            let firstChar = str.substr(0,1);
+            let remains = str.substr(1, str.length);
+            str = remains + firstChar;
+            span.innerHTML = str;
+        }
+    </script>
+</head>
+<!-- onload가 없으면 head에 script가 있으면 실행이 안됨 : 호출이 안되기 때문에 : onload를 통해 자동적으로 호출되도록 해줘야함 -->
+<body onload="A()"> 
+    <div><span id="span" style="background-color: yellow;">텍스트 왼쪽으로 자동회전</span></div>
+</body>
+</html>

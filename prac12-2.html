@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세션 스토리지에 쓰기/읽기</title>
+
+</head>
+<body>
+    <h3>세션 스토리지에 구입 리스트 저장/검색</h3>
+    <hr>
+    품목명 : <input type="text" id="item">
+    개수 : <input type="text" id="count"><br>
+          <button id="save" onclick="store()">저장</button><br>
+          <button id="searchPage" onclick="searchPage()">검색 페이지</button>
+
+          <script>
+            let item = document.getElementById("item");
+            let count = document.getElementById("count");
+    
+            function store() {
+                if(!window.sessionStorage) {
+                    alert("세션 스토리지를 지원하지 않습니다.");
+                    return;
+                }
+                sessionStorage.setItem(item.value, count.value);
+            }
+            function searchPage() {
+                window.location.href = "prac12-2-1.html";
+            }
+        </script>
+</body>
+</html>
